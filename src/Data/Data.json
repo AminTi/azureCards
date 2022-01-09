@@ -1,0 +1,50 @@
+[
+    {
+        "Id": "2",
+        "Type":"Feature",	
+        "Title":"Feature 1",
+        "State":"In progress",	
+        "Area":"Blue"	,
+        "Iteration":"Sprint 3",
+        "Relations" :"Parent 1"
+    },
+    {
+        "Id": "3",
+        "Type":"Feature",	
+        "Title":"Feature 2",
+        "State": "In progress",	
+        "Area":"Blue"	,
+        "Iteration":"Sprint 2",
+        "Relations" :"Parent 1,predecessor 4, 5"
+    },
+    {
+        "Id": "4",
+        "Type":"Feature",	
+        "Title":"Feature 3",
+        "State": "Done",	
+        "Area":"Red"	,
+        "Iteration":"Sprint 1",
+        "Relations" :"Parent 1, successor 3"
+    },
+    {
+        "Id": "5",
+        "Type":"Feature",	
+        "Title":"Feature 4",
+        "State": "In progress",	
+        "Area":"Red"	,
+        "Iteration":"Sprint 2",
+        "Relations" :"Parent 1, successor 3"
+    },
+
+    {
+        "Id": "6",
+        "Type":"Feature",	
+        "Title":"Feature 5",
+        "State": "New",	
+        "Area":"Red"	,
+        "Iteration":"Sprint 3",
+        "Relations" :"Parent 1, predecessor 3"
+    }
+    
+
+]
