@@ -25,31 +25,26 @@ const GridTemplate = () => {
   const JsonData = Data;
   const TextData: string[] = ["Epic", "New", "In-Progress", "Done"];
   const [storage, setStorage] = useState<string>("All");
-
-
   const area = Data.filter((item) => {
-      return item.Area === storage
+    return item.Area === storage;
   });
 
   const iteration = Data.filter((item) => {
-    return item.Iteration === storage
+    return item.Iteration === storage;
   });
 
-  const filterData = ()=>{
-      if(area.length > 0){
-          return area
-      }
-      else if(iteration.length){
-          return iteration
-      }
-      return JsonData
-  }
-
-
+  const filterData = () => {
+    if (area.length > 0) {
+      return area;
+    } else if (iteration.length) {
+      return iteration;
+    }
+    return JsonData;
+  };
 
   return (
     <>
-      <SerachBar setStorage={setStorage}  />
+      <SerachBar setStorage={setStorage} />
       <GridComponnets maxWidth="xl">
         <CssBaseline />
         {TextData.map((item: string, index: number) => {

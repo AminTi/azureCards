@@ -6,6 +6,7 @@
         "State":"In progress",	
         "Area":"Blue"	,
         "Iteration":"Sprint 3",
+        "RelationsId": ["10"],
         "Relations" :"Parent 1"
     },
     {
@@ -15,6 +16,7 @@
         "State": "In progress",	
         "Area":"Blue"	,
         "Iteration":"Sprint 2",
+        "RelationsId": ["4"],
         "Relations" :"Parent 1,predecessor 4, 5"
     },
     {
@@ -24,6 +26,7 @@
         "State": "Done",	
         "Area":"Red"	,
         "Iteration":"Sprint 1",
+        "RelationsId": ["3"],
         "Relations" :"Parent 1, successor 3"
     },
     {
@@ -33,6 +36,7 @@
         "State": "In progress",	
         "Area":"Red"	,
         "Iteration":"Sprint 2",
+        "RelationsId": ["3"],
         "Relations" :"Parent 1, successor 3"
     },
 
@@ -43,6 +47,7 @@
         "State": "New",	
         "Area":"Red"	,
         "Iteration":"Sprint 3",
+        "RelationsId": ["3"],
         "Relations" :"Parent 1, predecessor 3"
     }
     

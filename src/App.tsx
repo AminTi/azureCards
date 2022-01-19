@@ -18,7 +18,6 @@ flex-direction: column;
 function App() {
   return (
     <AppContainer>
- 
      <GridTemplate/>
     </AppContainer>
   );
