@@ -33,7 +33,9 @@ const CardWrapper = styled(Paper)<CardPosition>`
   border-radius: 10px;
   grid-area: ${(props) => (props.cardid ? props.cardid : null)};
   border-left: 10px solid green;
-  background: ${(props) => (props.test ? "blue" : null)};
+  border: ${(props) => (props.test ? " 5px solid red" : null)};
+  
+  
  
 `;
 
@@ -82,7 +84,7 @@ let Amin = ()=>{
   }
 }
 
-console.log(Amin())
+
 
 let newid = id && id[0]
 
@@ -99,7 +101,7 @@ let newid = id && id[0]
             <div>{item.State}</div>
             <div>{item.Area}</div>
             <div>{item.Iteration}</div>
-            <Relation onClick={(e)=> setId(item?.RelationsId)}> <ShowHide toggelBtn={toggelBtn} /> {item.Relations}</Relation>
+            <Relation onClick={(e)=> setId(item?.RelationsId)} > <ShowHide toggelBtn={item.Id === newid ? true :false} /> {item.Relations}</Relation>
           </CardWrapper>
         );
       })}
