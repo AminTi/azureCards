@@ -18,7 +18,7 @@ const GridComponnets = styled(Container)`
   height: 500px;
   background: #abceef;
   grid-gap: 10px;
-  padding-top: 30git px;
+  padding-top: 30px;
   border-radius: 15px;
 `;
 
