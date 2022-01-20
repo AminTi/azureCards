@@ -1,8 +1,7 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/system";
 import Paper from "@mui/material/Paper";
-import ShowHide from "./ShowHide"
-
+import ShowHide from "./ShowHide";
 
 interface JsonData {
   Id: string;
@@ -11,19 +10,14 @@ interface JsonData {
   State: string;
   Area: string;
   Iteration: string;
-  RelationsId: string[]  | undefined;
+  RelationsId: string[];
   Relations: string;
 }
 
-
 interface CardPosition {
   cardid: string;
-  test: any
- 
- 
-
+  test: any;
 }
-
 
 const CardWrapper = styled(Paper)<CardPosition>`
   display: flex;
@@ -33,10 +27,7 @@ const CardWrapper = styled(Paper)<CardPosition>`
   border-radius: 10px;
   grid-area: ${(props) => (props.cardid ? props.cardid : null)};
   border-left: 10px solid green;
-  border: ${(props) => (props.test ? " 5px solid red" : null)};
-  
-  
- 
+  border: ${(props) => (props.test ? " 3px solid red" : null)};
 `;
 
 const Headers = styled("div")`
@@ -50,50 +41,27 @@ const Relation = styled("div")`
   justify-content: space-between;
 `;
 
-
 interface items {
-    data: JsonData[]
+  data: JsonData[];
 }
-const Cards: React.FC<items>= ({data}) => {
-  const [toggelBtn, setToggelBtn] = useState(false)
-  const [id, setId] = useState<string[] | undefined >(undefined)
-  const [test, setTEst] = useState<any >("")
- 
- 
- 
-  const relationsData = data.map((item, index)=>{
-  return item.Id 
-  })
-  
-
-let a = relationsData.forEach(i =>{
-  let newid = id && id[0]
-  let d = i === newid ? true: false
-
-   return d
-})
-
-
-let Amin = ()=>{
-  let newid = id && id[0]
-  for (let i = 0; i < relationsData.length; i++) {
-    const element = relationsData[i];
-     if(element == newid ){
-       return i
-     }
-  }
-}
-
-
-
-let newid = id && id[0]
-
+const Cards: React.FC<items> = ({ data }) => {
+  const [id, setId] = useState<string[]>([]);
+  let newId: string[] = id && id;
 
   return (
     <>
-      {data.map((item:JsonData, index:number) => {
+      {data.map((item: JsonData, index: number) => {
         return (
-          <CardWrapper key={index} cardid={item.Title.replace(/\s/g, "")}  test={item.Id === newid ? true :false}>
+          <CardWrapper
+            key={index}
+            cardid={item.Title.replace(/\s/g, "")}
+            test={
+              newId.some((x) => x === item.Title.slice(item.Title.length - 1))
+                ? true
+                : false
+            }
+          >
+            {" "}
             <Headers>
               <div>{item.Id}</div> <div>{item.Type}</div>
               <div>{item.Title}</div>
@@ -101,7 +69,15 @@ let newid = id && id[0]
             <div>{item.State}</div>
             <div>{item.Area}</div>
             <div>{item.Iteration}</div>
-            <Relation onClick={(e)=> setId(item?.RelationsId)} > <ShowHide toggelBtn={item.Id === newid ? true :false} /> {item.Relations}</Relation>
+            <Relation onClick={(e) => setId(item.RelationsId)}>
+              <ShowHide
+                toggelBtn={Number(item.Id) === index ? true : false}
+                btn={
+                  item.RelationsId && item?.RelationsId[0] === "" ? false : true
+                }
+              />
+              {item.Relations}
+            </Relation>
           </CardWrapper>
         );
       })}

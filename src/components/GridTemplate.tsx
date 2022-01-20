@@ -6,6 +6,7 @@ import GridHeaders from "./GridHeaders";
 import Cards from "./Cards";
 import Data from "../Data/Data.json";
 import SerachBar from "./SerachBar";
+import Grid from "@mui/material/Grid";
 
 const GridComponnets = styled(Container)`
   display: grid;
@@ -46,7 +47,7 @@ const GridTemplate = () => {
   return (
     <>
       <SerachBar setStorage={setStorage} />
-      <GridComponnets maxWidth="xl">
+      <GridComponnets>
         <CssBaseline />
         {TextData.map((item: string, index: number) => {
           return <GridHeaders text={item} key={index} />;

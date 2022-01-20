@@ -12,21 +12,18 @@ const Serachbar = styled(Paper)`
   margin: 5%;
   display: flex;
   flex-direction: row;
-  padding: 10px 5px;
+  padding: 10px 10px;
   width: 700px;
-  border: 5px solid #abceef;
 `;
 const Space = styled("div")`
   padding: 5px;
 `;
 
 interface SearchData {
-  setStorage:React.Dispatch<React.SetStateAction<string>>
-  
+  setStorage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
-const SerachBar:React.FC<SearchData> = ({setStorage}) => {
+const SerachBar: React.FC<SearchData> = ({ setStorage }) => {
   const [area, setArea] = React.useState<string>("All");
   const [iteration, setIteration] = React.useState<string>("All");
 
@@ -80,4 +77,3 @@ export default SerachBar;
 function setSaveIteration(value: string) {
   throw new Error("Function not implemented.");
 }
-
