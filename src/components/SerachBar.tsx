@@ -14,6 +14,7 @@ const Serachbar = styled(Paper)`
   flex-direction: row;
   padding: 10px 10px;
   width: 700px;
+ 
 `;
 const Space = styled("div")`
   padding: 5px;

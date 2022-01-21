@@ -6,7 +6,7 @@
         "State":"In progress",	
         "Area":"Blue"	,
         "Iteration":"Sprint 3",
-        "RelationsId": ["10"],
+        "RelationsId": [""],
         "Relations" :"Parent 1"
     },
     {

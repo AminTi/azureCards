@@ -6,7 +6,7 @@ import GridHeaders from "./GridHeaders";
 import Cards from "./Cards";
 import Data from "../Data/Data.json";
 import SerachBar from "./SerachBar";
-import Grid from "@mui/material/Grid";
+
 
 const GridComponnets = styled(Container)`
   display: grid;

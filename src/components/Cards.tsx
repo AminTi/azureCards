@@ -16,7 +16,7 @@ interface JsonData {
 
 interface CardPosition {
   cardid: string;
-  test: any;
+  show: any;
 }
 
 const CardWrapper = styled(Paper)<CardPosition>`
@@ -27,7 +27,7 @@ const CardWrapper = styled(Paper)<CardPosition>`
   border-radius: 10px;
   grid-area: ${(props) => (props.cardid ? props.cardid : null)};
   border-left: 10px solid green;
-  border: ${(props) => (props.test ? " 3px solid red" : null)};
+  border: ${(props) => (props.show ? " 3px solid red" : null)};
 `;
 
 const Headers = styled("div")`
@@ -46,7 +46,9 @@ interface items {
 }
 const Cards: React.FC<items> = ({ data }) => {
   const [id, setId] = useState<string[]>([]);
+  const [b, setB] = useState(false);
   let newId: string[] = id && id;
+
 
   return (
     <>
@@ -55,7 +57,7 @@ const Cards: React.FC<items> = ({ data }) => {
           <CardWrapper
             key={index}
             cardid={item.Title.replace(/\s/g, "")}
-            test={
+            show={
               newId.some((x) => x === item.Title.slice(item.Title.length - 1))
                 ? true
                 : false
@@ -71,7 +73,9 @@ const Cards: React.FC<items> = ({ data }) => {
             <div>{item.Iteration}</div>
             <Relation onClick={(e) => setId(item.RelationsId)}>
               <ShowHide
-                toggelBtn={Number(item.Id) === index ? true : false}
+                toggelBtn={item.Title.slice(item.Title.length - 1) == item.Id
+                  ? true
+                  : false}
                 btn={
                   item.RelationsId && item?.RelationsId[0] === "" ? false : true
                 }
